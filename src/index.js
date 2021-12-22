@@ -12,15 +12,21 @@ export default class BitcoindRpcClient {
     this.password = opt.password || env.BITCOIND_PASSWORD || 'password'
   }
 
-  request(method, parameters = [], id = randomUUID()) {
+  request(method, parameters = []) {
+    if (typeof method === 'string') {
+      throw new TypeError('Method should be a string')
+    }
+
     this.beforeRequest(method, parameters)
 
-    const auth = Buffer.from(`${this.user}:${this.password}`).toString('base64')
+    const data = JSON.stringify({
+      method,
+      params: parameters,
+      jsonrpc: '2.0',
+      id: randomUUID(),
+    })
 
-    let data
-    if (typeof method === 'string') {
-      data = JSON.stringify({ method, params: parameters, jsonrpc: '2.0', id })
-    }
+    const auth = Buffer.from(`${this.user}:${this.password}`).toString('base64')
 
     const options = {
       host: this.host,
