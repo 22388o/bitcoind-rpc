@@ -15,8 +15,6 @@
 
 [@ln-markets/bitcoind-rpc](https://www.npmjs.com/package/@ln-markets/bitcoind-rpc) is a simple and small connector to speak with your bitcoin daemon
 
-**Note**: This module does not work in the browser.
-
 > :warning: **This module is written in native ECMAScript it will not work with Common JS**
 
 ## Install

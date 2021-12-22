@@ -36,6 +36,9 @@
     "lint": "xo",
     "format": "prettier --write 'src/**/*.js'"
   },
+  "dependencies": {
+    "json-bigint": "^1.0.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "15.0.0",
     "@commitlint/config-conventional": "15.0.0",
@@ -72,8 +75,5 @@
     "ignores": [
       "examples"
     ]
-  },
-  "dependencies": {
-    "json-bigint": "^1.0.0"
   }
 }
