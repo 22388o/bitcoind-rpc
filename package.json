@@ -1,6 +1,6 @@
 {
   "name": "@ln-markets/bitcoind-rpc",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Bitcoind RPC Client",
   "main": "src/index.js",
   "files": [
@@ -69,7 +69,9 @@
     "space": true,
     "prettier": true,
     "semicolon": false,
-    "ignores": ["examples"]
+    "ignores": [
+      "examples"
+    ]
   },
   "dependencies": {
     "json-bigint": "^1.0.0"
