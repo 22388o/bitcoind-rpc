@@ -4,17 +4,41 @@ import { env } from 'node:process'
 import { randomUUID } from 'node:crypto'
 import JSONBigInt from 'json-bigint'
 
+/** Bitcoind RPC Client. */
 export default class BitcoindRpcClient {
-  constructor(opt = {}) {
-    this.host = opt.host || env.BITCOIND_HOST || '127.0.0.1'
-    this.port = opt.port || env.BITCOIND_PORT || 8332
-    this.user = opt.user || env.BITCOIND_USER || 'user'
-    this.password = opt.password || env.BITCOIND_PASSWORD || 'password'
+  /**
+   * New instance of BitcoindRpcClient
+   * @param {string} host - Host of the bitcoind rpc.
+   * @param {bumber} port - Port of the bitcoind rpc.
+   * @param {string} user - User for bitcoind rpc.
+   * @param {string} password - Password for bitcoind user.
+   */
+
+  constructor({ host, port, user, password } = {}) {
+    this.host = host || env.BITCOIND_HOST || '127.0.0.1'
+    this.port = port || env.BITCOIND_PORT || 8332
+    this.user = user || env.BITCOIND_USER || 'user'
+    this.password = password || env.BITCOIND_PASSWORD || 'password'
   }
 
-  request(method, parameters = []) {
-    if (typeof method === 'string') {
+  /**
+   * Request the bitcoind rpc
+   * @param {string} method - Bitcoind method called
+   * @param {Object|Array)} parameters - Object with named parameters or Array with positional parameters
+   * @return {Promise} Promise of the http request
+   */
+
+  request(method, parameters) {
+    if (method === null || method === undefined || method === '') {
+      throw new Error('Method should not be empty')
+    }
+
+    if (typeof method !== 'string') {
       throw new TypeError('Method should be a string')
+    }
+
+    if (parameters && typeof parameters !== 'object') {
+      throw new TypeError('Parameters should be an object or an array')
     }
 
     this.beforeRequest(method, parameters)

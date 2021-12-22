@@ -6,13 +6,17 @@ const bitcoind = new BitcoindRpcClient({
   password: 'lnmarkets',
 })
 
-// With positional parameter
-const address1 = await bitcoind.request('getnewaddress', ['', 'legacy'])
+const address1 = await bitcoind.request('getnewaddress')
 console.log(address1)
 
+// With positional parameter
+const address2 = await bitcoind.request('getnewaddress', ['', 'legacy'])
+console.log(address2)
+
 // With named parameter
-const address2 = await bitcoind.request('getnewaddress', {
+const address3 = await bitcoind.request('getnewaddress', {
   label: ' ',
   address_type: 'bech32',
 })
-console.log(address2)
+console.log(address3)
+
