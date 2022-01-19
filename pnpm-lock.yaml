@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@commitlint/cli': 16.0.2
+  '@commitlint/cli': 16.0.3
   '@commitlint/config-conventional': 16.0.0
   ava: 4.0.1
   husky: 7.0.4
@@ -14,7 +14,7 @@ dependencies:
   json-bigint: 1.0.0
 
 devDependencies:
-  '@commitlint/cli': 16.0.2
+  '@commitlint/cli': 16.0.3
   '@commitlint/config-conventional': 16.0.0
   ava: 4.0.1
   husky: 7.0.4
@@ -233,8 +233,8 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@commitlint/cli/16.0.2:
-    resolution: {integrity: sha512-Jt7iaBjoLGC5Nq4dHPTvTYnqPGkElFPBtTXTvBpTgatZApczyjI2plE0oG4GYWPp1suHIS/VdVDOMpPZjGVusg==}
+  /@commitlint/cli/16.0.3:
+    resolution: {integrity: sha512-SB1od4/1ek5SShNKjKgUdpqiVNulNVgCkjkV4Zz9zLKrxn3sPcgvXMQNh/wy0/T4WPUVgHrHGcxWYOYXxrGwpg==}
     engines: {node: '>=v12'}
     hasBin: true
     dependencies:
